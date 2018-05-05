@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+  <title>Home</title>
+</head>
+
+
+
+<body>
+
+<div class="container">
+  <section>
+    <h1>Course Finder</h1>
+  </section>
+  <section>
+    <form action="." method="POST">{% csrf_token %}
+      <p class="row">
+        <label class="col-sm-2">Course</label><input class="col-sm-4" id="Course" name="Course" type="text"/>
+      </p>
+      </row>
+      <p class="row">
+        <label class="col-sm-2">Tariff</label><input class="col-sm-4" id="Tariff" name="Tariff" type="number"/>
+      </p>
+      </row>
+      <p class="row">
+        <span class="col-sm-2"></span><input type="submit" value="Go" class="col-sm-4 btn-primary">
+      </p>
+      </row>
+    </form>
+  </section>
+
+
+  <section>
+
+    {{ msg }}
+    {% for curs in COURSES %}
+        <p>
+          <div class="row"><span class="col-sm-2">Name:</span><span class="col-sm-4"><a href="{% url 'course_detail' curs.id %}">{{ curs.name|title }} [{{ curs.label }}]</a></span></div></row>
+          <div class="row"><span class="col-sm-2">Lower Tariff:</span><span class="col-sm-4">{{ curs.minTariff }}</span></div></row>
+          <div class="row"><span class="col-sm-2">Institution:</span><span class="col-sm-4">{{ curs.institution }}</span></div></row>
+          <div class="row"><span class="col-sm-2">Salary:</span><span class="col-sm-4">£{{ curs.salary }}</span></div></row>
+        </p>
+      <div style="border-bottom: 1px solid" class="col-sm-6"></div>
+      <br>
+    {% endfor %}
+
+  </section>
+
+</div><!-- content container -->
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+      <title>{{ course.name }}</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <section>
+      <br>
+      <br>
+      <h3><a href="{{ course.url }}">{{ course.label }} {{ course.name }}</a></h3>
+      <div class="row"><span class="col-md-4">Institution: </span><span class="col-md-4">{{ course.institution }}<span></div></row>
+      <div class="row"><span class="col-md-4">Study mode: </span><span class="col-md-4">{{ course.mode }}<span></div></row>
+      <div class="row"><span class="col-md-4">Median Salary: </span><span class="col-md-4">£{{ course.salary  }}<span></div></row>
+      <div class="row"><span class="col-md-4">Average Tariff: </span><span class="col-md-4">{{ course.avgTariff }}<span></div></row>
+      <div class="row"><span class="col-md-4">Lower Tariff Boundary: </span><span class="col-md-4">{{ course.minTariff }}<span></div></row>
+      <div class="row"><span class="col-md-4">Employment Rate: </span><span class="col-md-4">{{ course.employment }}%<span></div></row>
+    </section>
+  </div>
+
+</body>
+</html>
